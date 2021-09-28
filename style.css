@@ -1,0 +1,92 @@
+html {
+    background-color: rgba(32,33,36,1);
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color: blanchedalmond;
+}
+
+.start-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.information {
+    color: blanchedalmond;
+    display: flex;
+    margin-top: 2%;
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+.textbox {
+    margin-left: 5%;
+    background-color: transparent;
+    color: blanchedalmond;
+    border: 1px solid blanchedalmond;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.start-button {
+    margin-top: 2%;
+}
+
+.button {
+    background-color: transparent;
+    color: blanchedalmond;
+    border: 1px solid blanchedalmond;
+    border-radius: 6px;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+.textbox:focus {
+    outline: transparent;
+}
+
+.game-board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.restart-button {
+    margin-top: 2%;
+}
+
+.game-board {
+    display: grid;
+    margin-top: 5%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid blanchedalmond;
+    border-bottom: 1px solid blanchedalmond;
+    border-left: 1px solid blanchedalmond;
+    border-right: 1px solid blanchedalmond;
+    text-align: center;
+    height: 190px;
+    width: 180px;
+    border-radius: 6px;
+}
+
+.square {
+    margin: 10% 10% 10% 10%;
+    width: 50px;
+    height: 50px;
+    outline: double 1px #525356;
+}
+
+.square:hover {
+    background-color: cadetblue;
+}
+
+.inactive {
+    display: none;
+}
