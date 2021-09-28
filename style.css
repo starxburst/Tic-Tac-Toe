@@ -70,19 +70,18 @@ header {
     border-bottom: 1px solid blanchedalmond;
     border-left: 1px solid blanchedalmond;
     border-right: 1px solid blanchedalmond;
-    text-align: center;
-    min-height: 190px;
-    min-width: 180px;
-    max-height: 380px;
-    max-width: 360px;
+    height: 500px;
+    width: 500px;
     border-radius: 6px;
 }
 
 .square {
+    font-size: 50%;
     margin: 10% 10% 10% 10%;
-    width: 50px;
-    height: 50px;
+    width: 1fr;
+    height: 1fr;
     outline: double 1px #525356;
+    text-align: center;
 }
 
 .square:hover {
