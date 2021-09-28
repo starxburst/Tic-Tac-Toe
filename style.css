@@ -71,8 +71,10 @@ header {
     border-left: 1px solid blanchedalmond;
     border-right: 1px solid blanchedalmond;
     text-align: center;
-    height: 190px;
-    width: 180px;
+    min-height: 190px;
+    min-width: 180px;
+    max-height: 380px;
+    max-width: 360px;
     border-radius: 6px;
 }
 
