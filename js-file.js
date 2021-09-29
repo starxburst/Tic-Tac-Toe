@@ -50,6 +50,8 @@ const gameBoard = (() => {
         console.log(board);
     }
     const render = () => {
+        const gameBoardContainer = document.querySelector(".game-board-container");
+        gameBoardContainer.style.removeProperty('opacity');
         const container = document.querySelector(".game-board");
         container.innerHTML = "";
         for (i=0; i<board.length; i++) {
@@ -57,11 +59,16 @@ const gameBoard = (() => {
             const div = document.createElement("div");
 
             div.textContent = board[i];
-            div.style.fontSize = "40px";
             div.setAttribute("id", i);
             div.classList.add("square");
             div.classList.add("square:hover");
             div.addEventListener("click", move);
+
+            if (div.textContent == "O") {
+                div.classList.add("marks-O");
+            }else {
+                div.classList.add("marks-X");
+            }
             gameBoard.appendChild(div);
         }
     }
@@ -86,8 +93,10 @@ const gameBoard = (() => {
         for (i=0; i<winCombo.length; i++) {
             if (board[winCombo[i][0]] == player1.marks && board[winCombo[i][1]] == player1.marks && board[winCombo[i][2]] == player1.marks) {
                 console.log(`${player1.playerName} Win!`);
+                showWInner(player1.playerName);
             } else if (board[winCombo[i][0]] == player2.marks && board[winCombo[i][1]] == player2.marks && board[winCombo[i][2]] == player2.marks) {
                 console.log(`${player2.playerName} Win!`);
+                showWInner(player2.playerName);
             }
         }
     }
@@ -96,11 +105,14 @@ const gameBoard = (() => {
     const restart = () => {
         const startPageContainer = document.querySelector(".start-page-container");
         const gameBoardContainer = document.querySelector(".game-board-container");
+        const resultPageContainer = document.querySelector(".result-page-container");
         const playerOneName = document.querySelector("#playerOneName");
         const playerTwoName = document.querySelector("#playerTwoName");
 
         startPageContainer.classList.remove("inactive");
         gameBoardContainer.classList.add("inactive");
+        resultPageContainer.classList.add("inactive");
+
         board.length = 0;
         start();
         render();
@@ -109,8 +121,19 @@ const gameBoard = (() => {
         playerTwoName.value = "";
     }
 
-    const btnRestart = document.querySelector("#reStartButton");
-    btnRestart.addEventListener("click", restart);
+    const btnRestarts = document.querySelectorAll("#reStartButton");
+    btnRestarts.forEach(btnRestart => btnRestart.addEventListener("click", restart));
+
+    //Announce result
+    const showWInner = (winner) => {
+        const resultPageContainer = document.querySelector(".result-page-container");
+        const div = document.querySelector("#showResult");
+        const gameBoardContainer = document.querySelector(".game-board-container");
+
+        gameBoardContainer.style.opacity = "0.1";
+        div.textContent = `The winner is ${winner}`;
+        resultPageContainer.classList.remove("inactive");
+    }
 
 
 
